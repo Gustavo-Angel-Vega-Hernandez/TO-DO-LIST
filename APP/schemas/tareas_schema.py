@@ -6,24 +6,22 @@ class CreateTarea (BaseModel):
     id_secciones: int
     titulo: str
     descripcion: str
-    status: str
-    fecha_limite: date
+    status: Optional[str] = "Pendiente"
+    fecha_limite: Optional[date] = None
     
 class UpdateTarea (BaseModel):
-    id_tarea: Optional[int] = None
-    id_secciones: Optional[int] = None
     titulo: Optional[str] = None
     descripcion: Optional[str] = None
     status: Optional[str] = None
     fecha_limite: Optional[date] = None
     
 class ShowTarea (BaseModel):
-    id_tarea: Optional[int] = None
-    id_secciones: Optional[int] = None
-    titulo: Optional[str] = None
-    descripcion: Optional[str] = None
-    status: Optional[str] = None
+    id_tarea: int
+    id_secciones: int
+    titulo: str
+    descripcion: str
+    status: str
     fecha_limite: Optional[date] = None
     
-    class config:
-        from_atributes: True
+    class Config:
+        from_attributes = True
